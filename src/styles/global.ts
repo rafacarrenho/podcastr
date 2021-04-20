@@ -15,8 +15,13 @@ const GlobalStyles = createGlobalStyle`
     height: 100%;
   }
 
+  h1,h2,h3,h4,h5,h6{
+    font-weight: 600;
+    font-family: Lexend, sans-serif;
+  }
+
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+    font-family: Inter, sans-serif
   }
 `
 

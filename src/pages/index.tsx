@@ -1,5 +1,20 @@
-import Main from 'components/Main'
+export default function Home(props) {
+  return (
+    <div>
+      Oii
+      <div>{JSON.stringify(props.episodes)}</div>
+    </div>
+  )
+}
 
-export default function Home() {
-  return <Main />
+export async function getStaticProps() {
+  const response = await fetch('http://localhost:3333/episodes')
+  const data = await response.json()
+
+  return {
+    props: {
+      episodes: data
+    },
+    revalidate: 60 * 60 * 24
+  }
 }
