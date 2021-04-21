@@ -17,6 +17,16 @@ type Episodes = {
   url: string
 }
 
+type EpisodeFromServer = {
+  id: string
+  title: string
+  members: string
+  published_at: string
+  thumbnail: string
+  description: string
+  file: { duration: number; url: string }
+}
+
 export type HomeProps = {
   latestEpisodes: Episodes[]
   allEpisodes: Episodes[]
@@ -37,7 +47,7 @@ export const getStaticProps: GetStaticProps = async () => {
     }
   })
 
-  const episodes = data.map((episode) => {
+  const episodes = data.map((episode: EpisodeFromServer) => {
     return {
       id: episode.id,
       title: episode.title,
