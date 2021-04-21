@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 export const Wrapper = styled.div`
   ${({ theme }) => css`
     padding: 3rem 4rem;
-    width: 34.5rem;
+    width: 26.5rem;
     height: 100vh;
     background-color: ${theme.colors.background};
     color: ${theme.colors.white};
@@ -25,7 +25,11 @@ export const Wrapper = styled.div`
   `}
 `
 
-export const Footer = styled.footer`
+interface EmptyProp {
+  empty: boolean
+}
+
+export const Footer = styled.footer<EmptyProp>`
   ${({ empty }) => css`
     align-self: stretch;
 
@@ -36,11 +40,10 @@ export const Footer = styled.footer`
 export const EmptyPlayer = styled.div`
   ${({ theme }) => css`
     width: 100%;
-    height: 30rem;
+    height: 20rem;
     border: 1.5px dashed ${theme.colors.primaryDark};
     background-color: ${theme.colors.primaryLight};
     border-radius: 10px;
-    font-size: 1.6rem;
     padding: 4rem;
     display: flex;
     align-items: center;
@@ -52,8 +55,8 @@ export const EmptyPlayer = styled.div`
 export const Progress = styled.div`
   display: flex;
   align-items: center;
-  gap: 1rem;
-  font-size: 1.2rem;
+  gap: 0.5rem;
+  font-size: 0.875rem;
 
   span {
     display: inline-block;
@@ -91,9 +94,9 @@ export const Buttons = styled.div`
       outline: none;
 
       &.playButton {
-        width: 5rem;
-        height: 5rem;
-        border-radius: 3rem;
+        width: 4rem;
+        height: 4rem;
+        border-radius: 1rem;
         background-color: ${theme.colors.primaryLight};
       }
     }

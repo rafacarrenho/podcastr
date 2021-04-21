@@ -8,7 +8,6 @@ export const Wrapper = styled.header`
     align-items: center;
     padding: 2rem 4rem;
     border-bottom: 1px solid ${theme.colors.details};
-    font-size: 1.4rem;
 
     p {
       margin-left: 2rem;

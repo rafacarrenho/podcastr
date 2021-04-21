@@ -24,11 +24,11 @@ const MyPallet = {
 export const lightTheme = {
   theme: 'light',
   colors: {
-    header: MyPallet.whiteDark,
-    details: MyPallet.grey,
+    header: MyPallet.white,
+    details: MyPallet.greyLight,
     background: MyPallet.primary,
     backgroundDark: MyPallet.blueDark,
-    backgroundSecondary: MyPallet.white,
+    backgroundSecondary: MyPallet.whiteDark,
     backgroundSecondaryDark: MyPallet.greyLight,
     text: MyPallet.blackLight,
     darkMode: MyPallet.blackDark,
