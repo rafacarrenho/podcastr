@@ -52,6 +52,28 @@ export const EmptyPlayer = styled.div`
   `}
 `
 
+export const CurrentEpisode = styled.div`
+  text-align: center;
+
+  img {
+    border-radius: 1.5rem;
+  }
+
+  strong {
+    display: block;
+    margin-top: 2rem;
+    font: 600 1.25rem Lexend, sans-serif;
+    line-height: 1.75rem;
+  }
+
+  span {
+    display: block;
+    margin-top: 1rem;
+    opacity: 0.6;
+    line-height: 1.5rem;
+  }
+`
+
 export const Progress = styled.div`
   display: flex;
   align-items: center;
@@ -92,12 +114,25 @@ export const Buttons = styled.div`
       font-size: 0;
       cursor: pointer;
       outline: none;
+      transition: 0.2s;
+
+      &:not(:disabled):hover {
+        filter: brightness(0.8);
+      }
 
       &.playButton {
         width: 4rem;
         height: 4rem;
         border-radius: 1rem;
         background-color: ${theme.colors.primaryLight};
+
+        &:not(:disabled):hover {
+          filter: brightness(0.95);
+        }
+      }
+
+      &:disabled {
+        cursor: not-allowed;
       }
     }
   `}

@@ -2,8 +2,11 @@ import { HomeProps } from 'pages'
 import Image from 'next/image'
 import * as S from './styles'
 import Link from 'next/link'
+import { useContext } from 'react'
+import { PlayerContext } from 'contexts/PlayerContext'
 
 const HomeTemplate = ({ latestEpisodes, allEpisodes }: HomeProps) => {
+  const { play } = useContext(PlayerContext)
   return (
     <S.Wrapper>
       <S.LastestEpisodes>
@@ -27,7 +30,8 @@ const HomeTemplate = ({ latestEpisodes, allEpisodes }: HomeProps) => {
                   <span>{episode.publishedAt}</span>
                   <span>{episode.durationAsString}</span>
                 </S.EpisodesDetails>
-                <button type="button">
+                {console.log(episode)}
+                <button type="button" onClick={() => play(episode)}>
                   <img src="/img/play-green.svg" alt="Play" />
                 </button>
               </li>
