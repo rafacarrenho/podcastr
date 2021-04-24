@@ -1,8 +1,8 @@
 import Image from "next/image";
 import * as S from "./styles";
 import Link from "next/link";
-import { EpisodeProps } from "pages/episode/[slug]";
 import { usePlayer } from "contexts/PlayerContext";
+import { EpisodeProps } from "pages/episode/[slug]";
 import Head from "next/head";
 
 const EpisodeTemplate = ({ episode }: EpisodeProps) => {

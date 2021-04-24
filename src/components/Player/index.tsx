@@ -108,7 +108,7 @@ const Player = () => {
           </S.Slider>
           <span>{convertDurationToTimeString(episode?.duration ?? 0)}</span>
         </S.Progress>
-
+        {console.log(episode)}
         {episode && (
           <audio
             src={episode.url}
