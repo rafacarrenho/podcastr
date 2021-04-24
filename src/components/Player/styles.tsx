@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div`
   ${({ theme }) => css`
@@ -23,10 +23,10 @@ export const Wrapper = styled.div`
       font-weight: 600;
     }
   `}
-`
+`;
 
 interface EmptyProp {
-  empty: boolean
+  empty: boolean;
 }
 
 export const Footer = styled.footer<EmptyProp>`
@@ -35,7 +35,7 @@ export const Footer = styled.footer<EmptyProp>`
 
     opacity: ${empty ? 0.5 : 1};
   `}
-`
+`;
 
 export const EmptyPlayer = styled.div`
   ${({ theme }) => css`
@@ -50,7 +50,7 @@ export const EmptyPlayer = styled.div`
     justify-content: center;
     text-align: center;
   `}
-`
+`;
 
 export const CurrentEpisode = styled.div`
   text-align: center;
@@ -72,7 +72,7 @@ export const CurrentEpisode = styled.div`
     opacity: 0.6;
     line-height: 1.5rem;
   }
-`
+`;
 
 export const Progress = styled.div`
   display: flex;
@@ -85,11 +85,11 @@ export const Progress = styled.div`
     width: 4rem;
     text-align: center;
   }
-`
+`;
 
 export const Slider = styled.footer`
   flex: 1;
-`
+`;
 
 export const EmptySlider = styled.footer`
   ${({ theme }) => css`
@@ -98,7 +98,7 @@ export const EmptySlider = styled.footer`
     background: ${theme.colors.white};
     border-radius: 2px;
   `}
-`
+`;
 
 export const Buttons = styled.div`
   ${({ theme }) => css`
@@ -120,6 +120,10 @@ export const Buttons = styled.div`
         filter: brightness(0.8);
       }
 
+      &.active {
+        filter: invert(0.35) saturate(3) hue-rotate(100deg);
+      }
+
       &.playButton {
         width: 4rem;
         height: 4rem;
@@ -136,4 +140,4 @@ export const Buttons = styled.div`
       }
     }
   `}
-`
+`;

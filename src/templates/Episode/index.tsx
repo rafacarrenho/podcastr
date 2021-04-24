@@ -1,11 +1,17 @@
-import Image from 'next/image'
-import * as S from './styles'
-import Link from 'next/link'
-import { EpisodeProps } from 'pages/episode/[slug]'
+import Image from "next/image";
+import * as S from "./styles";
+import Link from "next/link";
+import { EpisodeProps } from "pages/episode/[slug]";
+import { usePlayer } from "contexts/PlayerContext";
+import Head from "next/head";
 
 const EpisodeTemplate = ({ episode }: EpisodeProps) => {
+  const { play } = usePlayer();
   return (
     <S.Wrapper>
+      <Head>
+        <title>{episode.title}</title>
+      </Head>
       <S.ThumbnailContainer>
         <Link href="/">
           <button type="button">
@@ -18,7 +24,7 @@ const EpisodeTemplate = ({ episode }: EpisodeProps) => {
           src={episode.thumbnail}
           objectFit="cover"
         />
-        <button type="button">
+        <button type="button" onClick={() => play(episode)}>
           <img src="/img/play.svg" alt="Tocar episódio" />
         </button>
       </S.ThumbnailContainer>
@@ -34,7 +40,7 @@ const EpisodeTemplate = ({ episode }: EpisodeProps) => {
         dangerouslySetInnerHTML={{ __html: episode.description }}
       />
     </S.Wrapper>
-  )
-}
+  );
+};
 
-export default EpisodeTemplate
+export default EpisodeTemplate;

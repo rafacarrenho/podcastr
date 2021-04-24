@@ -1,18 +1,19 @@
-import { HomeProps } from 'pages'
-import Image from 'next/image'
-import * as S from './styles'
-import Link from 'next/link'
-import { useContext } from 'react'
-import { PlayerContext } from 'contexts/PlayerContext'
+import { HomeProps } from "pages";
+import Image from "next/image";
+import * as S from "./styles";
+import Link from "next/link";
+import { usePlayer } from "contexts/PlayerContext";
 
 const HomeTemplate = ({ latestEpisodes, allEpisodes }: HomeProps) => {
-  const { play } = useContext(PlayerContext)
+  const { playList } = usePlayer();
+
+  const episodeList = [...latestEpisodes, ...allEpisodes];
   return (
     <S.Wrapper>
       <S.LastestEpisodes>
         <h2>Ultimos lançamentos</h2>
         <ul>
-          {latestEpisodes.map((episode) => {
+          {latestEpisodes.map((episode, index) => {
             return (
               <li key={episode.id}>
                 <Image
@@ -30,12 +31,14 @@ const HomeTemplate = ({ latestEpisodes, allEpisodes }: HomeProps) => {
                   <span>{episode.publishedAt}</span>
                   <span>{episode.durationAsString}</span>
                 </S.EpisodesDetails>
-                {console.log(episode)}
-                <button type="button" onClick={() => play(episode)}>
+                <button
+                  type="button"
+                  onClick={() => playList(episodeList, index)}
+                >
                   <img src="/img/play-green.svg" alt="Play" />
                 </button>
               </li>
-            )
+            );
           })}
         </ul>
       </S.LastestEpisodes>
@@ -53,7 +56,7 @@ const HomeTemplate = ({ latestEpisodes, allEpisodes }: HomeProps) => {
             </tr>
           </thead>
           <tbody>
-            {allEpisodes.map((episode) => (
+            {allEpisodes.map((episode, index) => (
               <tr key={episode.id}>
                 <td style={{ width: 80 }}>
                   <Image
@@ -73,7 +76,12 @@ const HomeTemplate = ({ latestEpisodes, allEpisodes }: HomeProps) => {
                 <td style={{ width: 100 }}>{episode.publishedAt}</td>
                 <td>{episode.durationAsString}</td>
                 <td>
-                  <button type="button">
+                  <button
+                    type="button"
+                    onClick={() =>
+                      playList(episodeList, index + latestEpisodes.length)
+                    }
+                  >
                     <img src="/img/play-green.svg" alt="Tocar episódio" />
                   </button>
                 </td>
@@ -83,7 +91,7 @@ const HomeTemplate = ({ latestEpisodes, allEpisodes }: HomeProps) => {
         </table>
       </S.AllEpisodes>
     </S.Wrapper>
-  )
-}
+  );
+};
 
-export default HomeTemplate
+export default HomeTemplate;
